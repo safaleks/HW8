@@ -1,25 +1,66 @@
 package ru.netology.radio;
 
-import java.util.Scanner;
+public class Radio {
 
-public class Radio() {
-    int currentVolume;
-    Scanner sc = new Scanner(System.in);
-        System.out.println("Введите значение управления Volume:");
-        String buttonVolume = sc.next();
-        sc.close();// fgfd
+    private int currentVolume = 5;
+    int maxVolume = 10;
+    int minVolume = 0;
+    private int currentStation = 5;
+    int maxStation = 9;
+    int minStation = 0;
 
-    public void VolumeUp() {
 
-        if (buttonVolume = +) {
-            if (currentVolume < 10) {
-                currentVolume = currentVolume + 1;
-            }
-            ;
-        } else {
-            if (currentVolume > 0) {
-                currentVolume = currentVolume - 1;
-            }
+    public int changeTheStationByRemoteControl(int intendedStation) {
+        if (intendedStation <= maxStation && intendedStation >= minStation) {
+            currentStation = intendedStation;
         }
+        return currentStation;
+    }
+
+
+    public void nextStation() {
+        if (currentStation == maxStation) {
+            currentStation = 0;
+        } else {
+            currentStation += 1;
+        }
+    }
+
+    public void prevStation() {
+        if (currentStation == minStation) {
+            currentStation = 9;
+        } else {
+            currentStation -= 1;
+        }
+    }
+
+
+    public void volumeUp() {
+        if (currentVolume < maxVolume) {
+            currentVolume += 1;
+        }
+    }
+
+    public void volumeDown() {
+        if (currentVolume > minVolume) {
+            currentVolume -= 1;
+
+        }
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
+
+    public int getCurrentStation() {
+        return currentStation;
+    }
+
+    public void setCurrentStation(int currentStation) {
+        this.currentStation = currentStation;
     }
 }
