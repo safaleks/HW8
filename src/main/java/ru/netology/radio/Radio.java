@@ -1,13 +1,13 @@
 package ru.netology.radio;
 
 public class Radio {
+    private  int currentVolume = 5;
+    private int maxVolume = 10;
+    private int minVolume = 0;
 
-    private int currentVolume = 5;
-    int maxVolume = 10;
-    int minVolume = 0;
     private int currentStation = 5;
-    int maxStation = 9;
-    int minStation = 0;
+    private int maxStation = 9;
+    private int minStation = 0;
 
 
     public int changeTheStationByRemoteControl(int intendedStation) {
@@ -20,7 +20,7 @@ public class Radio {
 
     public void nextStation() {
         if (currentStation == maxStation) {
-            currentStation = 0;
+            currentStation = minStation;
         } else {
             currentStation += 1;
         }
@@ -28,7 +28,7 @@ public class Radio {
 
     public void prevStation() {
         if (currentStation == minStation) {
-            currentStation = 9;
+            currentStation = maxStation;
         } else {
             currentStation -= 1;
         }
